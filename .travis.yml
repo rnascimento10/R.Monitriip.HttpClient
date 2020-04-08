@@ -1,0 +1,11 @@
+
+language: csharp
+dist: xenial
+mono: none
+dotnet: 3.1.201
+install:
+- dotnet restore ./src/R.Monitriip.HttpClient.sln
+script:
+- dotnet build ./src/R.Monitriip.HttpClient.sln
+- dotnet test ./src/R.Monitriip.HttpClient.Tests/R.Monitriip.HttpClient.Tests.csproj
+- dotnet nuget push ./src/R.AnttClient/bin/Debug/R.Monitriip.HttpClient.1.0.2.nupkg -k oy2jogvemuhob3prnk2ayivos7v4rdeedorek32qvv2yha -s https://api.nuget.org/v3/index.json

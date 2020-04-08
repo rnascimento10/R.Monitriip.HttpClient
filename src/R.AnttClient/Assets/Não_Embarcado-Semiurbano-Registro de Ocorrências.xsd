@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://antt.gov.br/monitriip/v1.0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="registroOcorrenciaSemiurbano">
+    <xs:annotation>
+      <xs:documentation>Contém informações das ocorrências, quando um passageiro registrar uma ocorrência em um Ponto de Registro de Ocorrências.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="idLog">
+          <xs:annotation>
+            <xs:documentation>Identificador de Log.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:byte">
+              <xs:pattern value="([0-9])+"/>
+              <xs:enumeration value="03"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="identificacaoLinha">
+          <xs:annotation>
+            <xs:documentation>Identificação da linha.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="([a-zA-Z0-9])+"/>
+              <xs:minLength value="4"/>
+              <xs:maxLength value="8"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="empresaResponsavel">
+          <xs:annotation>
+            <xs:documentation>Empresa Responsável.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="3"/>
+              <xs:maxLength value="80"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+		<xs:element name="cnpjEmpresaTransporte">
+			<xs:annotation>
+				<xs:documentation>CNPJ da empresa.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[0-9]{14}"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+        <xs:element name="informacoesReclamante">
+          <xs:annotation>
+            <xs:documentation>Contém informações do reclamante.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nomeReclamante">
+                <xs:annotation>
+                  <xs:documentation>Nome completo do reclamante.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="3"/>
+                    <xs:maxLength value="50"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="documentoIdentificacaoReclamante">
+                <xs:annotation>
+                  <xs:documentation>Documento de identificação do reclamante.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="([a-zA-Z0-9 ])+"/>
+                    <xs:minLength value="1"/>
+                    <xs:maxLength value="20"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="enderecoReclamante" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Endereço do reclamante.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="10"/>
+                    <xs:maxLength value="180"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="telefoneContatoReclamante">
+                <xs:annotation>
+                  <xs:documentation>Telefone de contato do reclamante.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="([0-9])+"/>
+                    <xs:minLength value="10"/>
+                    <xs:maxLength value="12"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="emailReclamante" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>E-mail do reclamante.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="([a-zA-Z0-9 @.])+"/>
+                    <xs:minLength value="5"/>
+                    <xs:maxLength value="50"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="codigoTipoOcorrencia">
+          <xs:annotation>
+            <xs:documentation>Tipo de ocorrência.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:byte">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="99"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="dataOcorrencia" type="xs:date">
+          <xs:annotation>
+            <xs:documentation>Data da ocorrência.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="horaOcorrencia" type="xs:time">
+          <xs:annotation>
+            <xs:documentation>Hora da ocorrência.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="dataRegistroOcorrencia" type="xs:date">
+          <xs:annotation>
+            <xs:documentation>Data do registro da ocorrência.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="horaRegistroOcorrencia" type="xs:time">
+          <xs:annotation>
+            <xs:documentation>Hora do registro da ocorrência.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="descricaoOcorrencia">
+          <xs:annotation>
+            <xs:documentation>Descrição da ocorrência.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="10"/>
+              <xs:maxLength value="4000"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="numeroProtocolo">
+          <xs:annotation>
+            <xs:documentation>Número do Protocolo.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="([a-zA-Z0-9])+"/>
+              <xs:minLength value="1"/>
+              <xs:maxLength value="21"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

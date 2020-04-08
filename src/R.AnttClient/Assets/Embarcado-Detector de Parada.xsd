@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://antt.gov.br/monitriip/v1.0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="detectorParada">
+    <xs:annotation>
+      <xs:documentation>Contém informações de parada, quando o veículo para completamente, a porta é aberta e fechada, e o veículo reinicia o movimento.</xs:documentation>
+    </xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idLog">
+          <xs:annotation>
+            <xs:documentation>Identificador de Log.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="06"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="cnpjEmpresaTransporte">
+          <xs:annotation>
+            <xs:documentation>CNPJ da empresa de transporte.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{14}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="placaVeiculo">
+          <xs:annotation>
+            <xs:documentation>Placa do veículo.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="([A-Z0-9])+"/>
+							<xs:minLength value="7"/>
+							<xs:maxLength value="8"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="codigoMotivoParada">
+          <xs:annotation>
+            <xs:documentation>Motivo da parada ou evento.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="00"/>
+							<xs:enumeration value="01"/>
+							<xs:enumeration value="02"/>
+							<xs:enumeration value="03"/>
+							<xs:enumeration value="04"/>
+							<xs:enumeration value="05"/>
+							<xs:enumeration value="06"/>
+							<xs:enumeration value="07"/>
+							<xs:enumeration value="08"/>
+							<xs:enumeration value="09"/>
+							<xs:enumeration value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="latitude">
+          <xs:annotation>
+            <xs:documentation>Latitude.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="23"/>
+							<xs:fractionDigits value="20"/>
+							<xs:minInclusive value="-90"/>
+							<xs:maxInclusive value="90"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="longitude">
+          <xs:annotation>
+            <xs:documentation>Longitude.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+              <xs:totalDigits value="23"/>
+              <xs:fractionDigits value="20"/>
+							<xs:minInclusive value="-180"/>
+							<xs:maxInclusive value="180"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+        <xs:element name="pdop">
+          <xs:annotation>
+            <xs:documentation>PDOP (POSITION DILUTION OF PRECISION).</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+              <xs:totalDigits value="10"/>
+              <xs:fractionDigits value="6"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="dataHoraEvento" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data e hora do evento.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+				<xs:element name="imei">
+          <xs:annotation>
+            <xs:documentation>Número IMEI do equipamento de transmissão.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:long">
+							<xs:pattern value="([0-9])+"/>
+							<xs:totalDigits value="18"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

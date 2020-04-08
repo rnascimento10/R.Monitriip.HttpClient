@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://antt.gov.br/monitriip/v1.0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="cartaoEmitidoRecargaEfetuada">
+    <xs:annotation>
+      <xs:documentation>Contém informações de cartões emitidos ou recargas efetuadas, quando o sistema de venda de cartões da empresa de transporte finalizar uma venda.</xs:documentation>
+    </xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idLog">
+          <xs:annotation>
+            <xs:documentation>Identificador de Log.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="01"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="cnpjEmpresa">
+          <xs:annotation>
+            <xs:documentation>CNPJ da empresa.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{14}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="codigoCategoriaTransporte">
+          <xs:annotation>
+            <xs:documentation>Categoria do transporte .</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="01"/>
+							<xs:enumeration value="02"/>
+							<xs:enumeration value="03"/>
+							<xs:enumeration value="04"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="numeroCartao">
+          <xs:annotation>
+            <xs:documentation>Número do cartão.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="([a-zA-Z0-9])+"/>
+							<xs:minLength value="1"/>
+							<xs:maxLength value="20"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="codigoTipoCartao">
+          <xs:annotation>
+            <xs:documentation>Tipo de cartão.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="00"/>
+							<xs:enumeration value="01"/>
+							<xs:enumeration value="02"/>
+							<xs:enumeration value="03"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+        <xs:element type="xs:date" name="dataVenda">
+          <xs:annotation>
+            <xs:documentation>Data da venda.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element type="xs:time" name="horaVenda">
+          <xs:annotation>
+            <xs:documentation>Hora da viagem.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+				<xs:element name="bonusRecarga">
+          <xs:annotation>
+            <xs:documentation>Bônus de recarga.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="10"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="valorTotalRecarga">
+          <xs:annotation>
+            <xs:documentation>Valor da total da recarga.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="10"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="saldoTotalCartao">
+          <xs:annotation>
+            <xs:documentation>Saldo total do cartão.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="10"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="informacoesPassageiro">
+          <xs:annotation>
+            <xs:documentation>Contém informações do passageiro.</xs:documentation>
+          </xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="nomePassageiro">
+                <xs:annotation>
+                  <xs:documentation>Nome do Passageiro.</xs:documentation>
+                </xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="3"/>
+										<xs:maxLength value="50"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="documentoIdentificacaoPassageiro">
+                <xs:annotation>
+                  <xs:documentation>Documento de identificação do passageiro.</xs:documentation>
+                </xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="([a-zA-Z0-9 ])+"/>
+										<xs:minLength value="1"/>
+										<xs:maxLength value="20"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="cpfPassageiro" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>CPF do Passageiro.</xs:documentation>
+                </xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="([0-9]){11}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="celularPassageiro" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Celular do passageiro.</xs:documentation>
+                </xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="([0-9])+"/>
+                    <xs:minLength value="10"/>
+                    <xs:maxLength value="14"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

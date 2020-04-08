@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://antt.gov.br/monitriip/v1.0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="cancelarPassagem">
+    <xs:annotation>
+      <xs:documentation>Realiza a comunicação dos bilhetes de embarque cancelados durante um determinado período.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="idLog">
+          <xs:annotation>
+            <xs:documentation>Identificador de Log.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:unsignedByte">
+              <xs:pattern value="([0-9])+"/>
+              <xs:enumeration value="11"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="numeroBilheteEmbarque">
+          <xs:annotation>
+            <xs:documentation>Número do bilhete de embarque.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="([a-zA-Z0-9])+"/>
+              <xs:minLength value="6"/>
+              <xs:maxLength value="9"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="identificacaoLinha">
+          <xs:annotation>
+            <xs:documentation>Identificação da linha.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="([a-zA-Z0-9])+"/>
+              <xs:minLength value="4"/>
+              <xs:maxLength value="8"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="dataViagem" type="xs:date">
+          <xs:annotation>
+            <xs:documentation>Data da viagem.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="horaViagem" type="xs:time">
+          <xs:annotation>
+            <xs:documentation>Hora da viagem.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="codigoMotivoCancelamento">
+          <xs:annotation>
+            <xs:documentation>Motivo do cancelamento do bilhete.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:unsignedByte">
+              <xs:pattern value="([0-9])+"/>
+              <xs:enumeration value="01"/>
+              <xs:enumeration value="02"/>
+              <xs:enumeration value="03"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="dataHoraCancelamento" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data e hora do registro do cancelamento.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="numeroNovoBilheteEmbarque" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Novo número do bilhete de embarque gerado.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="([a-zA-Z0-9])+"/>
+              <xs:minLength value="6"/>
+              <xs:maxLength value="9"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

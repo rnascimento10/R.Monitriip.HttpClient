@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://antt.gov.br/monitriip/v1.0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="vendaPassagem">
+    <xs:annotation>
+      <xs:documentation>Contém informações da quantidade de passagens vendidas durante um determinado período.</xs:documentation>
+    </xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idLog">
+          <xs:annotation>
+            <xs:documentation>Identificador de Log.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="00"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="codigoBilheteEmbarque">
+          <xs:annotation>
+            <xs:documentation>Código identificador do bilhete de embarque.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="00"/>
+							<xs:enumeration value="01"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="cnpjEmpresa">
+          <xs:annotation>
+            <xs:documentation>CNPJ da empresa.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{14}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="numeroSerieEquipamentoFiscal">
+          <xs:annotation>
+            <xs:documentation>Número de série do equipamento fiscal que emitiu o bilhete de passagem.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="([a-zA-Z0-9])+"/>
+							<xs:length value="6"/>
+							<xs:length value="20"/>
+							<xs:length value="44"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="numeroBilheteEmbarque">
+          <xs:annotation>
+            <xs:documentation>Número do bilhete de embarque.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+              <xs:pattern value="([a-zA-Z0-9])+"/>
+              <xs:minLength value="6"/>
+              <xs:maxLength value="9"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+        <xs:element type="xs:date" name="dataEmissaoBilhete">
+          <xs:annotation>
+            <xs:documentation>Data de emissão do bilhete de embarque.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element type="xs:time" name="horaEmissaoBilhete">
+          <xs:annotation>
+            <xs:documentation>Hora de emissão do bilhete de embarque.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+				<xs:element name="codigoCategoriaTransporte">
+          <xs:annotation>
+            <xs:documentation>Categoria do Transporte.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="01"/>
+							<xs:enumeration value="02"/>
+							<xs:enumeration value="03"/>
+							<xs:enumeration value="04"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="identificacaoLinha">
+          <xs:annotation>
+            <xs:documentation>Identificação da linha.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="([a-zA-Z0-9])+"/>
+							<xs:minLength value="4"/>
+							<xs:maxLength value="8"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idPontoOrigemViagem">
+          <xs:annotation>
+            <xs:documentation>Código do ponto de origem da viagem.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:long">
+							<xs:pattern value="([0-9])+"/>
+							<xs:totalDigits value="20"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idPontoDestinoViagem">
+          <xs:annotation>
+            <xs:documentation>Código do ponto de destino da viagem.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:long">
+							<xs:pattern value="([0-9])+"/>
+							<xs:totalDigits value="20"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="codigoTipoServico">
+          <xs:annotation>
+            <xs:documentation>Tipo de serviço.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="00"/>
+							<xs:enumeration value="02"/>
+							<xs:enumeration value="03"/>
+							<xs:enumeration value="04"/>
+							<xs:enumeration value="05"/>
+							<xs:enumeration value="06"/>
+							<xs:enumeration value="07"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+        <xs:element type="xs:date" name="dataViagem">
+          <xs:annotation>
+            <xs:documentation>Data da viagem.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element type="xs:time" name="horaViagem">
+          <xs:annotation>
+            <xs:documentation>Hora da viagem.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+				<xs:element name="codigoTipoViagem">
+          <xs:annotation>
+            <xs:documentation>Tipo de viagem.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="[0-9]{1,2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="numeroPoltrona">
+          <xs:annotation>
+            <xs:documentation>Número da poltrona.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:integer">
+							<xs:pattern value="([0-9])+"/>
+							<xs:totalDigits value="7"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="plataformaEmbarque">
+          <xs:annotation>
+            <xs:documentation>Plataforma de embarque.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="([a-zA-Z0-9])+"/>
+							<xs:minLength value="1"/>
+							<xs:maxLength value="15"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="codigoMotivoDesconto">
+          <xs:annotation>
+            <xs:documentation>Motivo do desconto.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:byte">
+							<xs:pattern value="([0-9])+"/>
+							<xs:enumeration value="01"/>
+							<xs:enumeration value="02"/>
+							<xs:enumeration value="05"/>
+							<xs:enumeration value="06"/>
+							<xs:enumeration value="07"/>
+							<xs:enumeration value="08"/>
+							<xs:enumeration value="09"/>
+							<xs:enumeration value="10"/>
+							<xs:enumeration value="11"/>
+							<xs:enumeration value="12"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="valorTarifa">
+          <xs:annotation>
+            <xs:documentation>Valor da Tarifa.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="10"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="percentualDesconto">
+          <xs:annotation>
+            <xs:documentation>Percentual de desconto.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="5"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="aliquotaICMS">
+          <xs:annotation>
+            <xs:documentation>Percentual da alíquota do ICMS.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="5"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="valorPedagio">
+          <xs:annotation>
+            <xs:documentation>Valor do pedágio.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="10"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="valorTaxaEmbarque">
+          <xs:annotation>
+            <xs:documentation>Valor da taxa de embarque.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="10"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="valorTotal">
+          <xs:annotation>
+            <xs:documentation>Valor total.</xs:documentation>
+          </xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="10"/>
+							<xs:fractionDigits value="2"/> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="informacoesPassageiro">
+          <xs:annotation>
+            <xs:documentation>Contém informações do passageiro.</xs:documentation>
+          </xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+						<xs:element name="nomePassageiro">
+              <xs:annotation>
+                <xs:documentation>Nome do passageiro.</xs:documentation>
+              </xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="50"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="documentoIdentificacaoPassageiro">
+              <xs:annotation>
+                <xs:documentation>Documento de identificação do passageiro.</xs:documentation>
+              </xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="([a-zA-Z0-9 ])+"/>
+									<xs:minLength value="1"/>
+									<xs:maxLength value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="cpfPassageiro" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>CPF do passageiro.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="([0-9]){11}"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="celularPassageiro" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Celular do passageiro.</xs:documentation>
+              </xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="([0-9])+"/>
+                  <xs:minLength value="10"/>
+                  <xs:maxLength value="12"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

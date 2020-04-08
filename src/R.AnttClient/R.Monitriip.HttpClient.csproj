@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Description>Uma bilblioteca simples para envio de logs para o sistema Monitriip</Description>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>Monitriip; Logs Antt; Antt</PackageTags>
+    <RepositoryUrl>https://github.com/rnascimento10/Boole.Antt.Client</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/rnascimento10/Boole.Antt.Client</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.2</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.3" />
+    <PackageReference Include="System.Net.Http.Formatting.Extension" Version="5.2.3" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\Embarcado-Detector de Parada.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Embarcado-Inicio Fim Viagem Fretado.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Embarcado-Inicio Fim Viagem Regular.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Embarcado-Jornada Motorista.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Embarcado-Leitor Bilhete Embarque.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Embarcado-Leitor Cartão Embarque.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Embarcado-Velocidade Tempo Localizacao.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Não_Embarcado-Cancelar Passagem.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Não_Embarcado-Rembolso Cartão.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Não_Embarcado-Rodoviário-Registro de Ocorrências.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Não_Embarcado-Rodoviário-Venda de Passagem.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Não_Embarcado-Semiurbano-Cartão Emitido Recarga Efetuada.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Assets\Não_Embarcado-Semiurbano-Registro de Ocorrências.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+
+</Project>
