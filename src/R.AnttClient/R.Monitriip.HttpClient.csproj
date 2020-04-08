@@ -8,7 +8,7 @@
     <RepositoryUrl>https://github.com/rnascimento10/Boole.Antt.Client</RepositoryUrl>
     <PackageProjectUrl>https://github.com/rnascimento10/Boole.Antt.Client</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
