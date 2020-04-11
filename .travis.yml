@@ -8,4 +8,4 @@ install:
 script:
 - dotnet build ./src/R.Monitriip.HttpClient.sln
 - dotnet test ./src/R.Monitriip.HttpClient.Tests/R.Monitriip.HttpClient.Tests.csproj
-- dotnet nuget push ./src/R.AnttClient/bin/Debug/R.Monitriip.HttpClient.1.0.4.nupkg -k $PACKAGE_PUBLISH -s https://api.nuget.org/v3/index.json
+- dotnet nuget push ./src/R.AnttClient/bin/Debug/R.Monitriip.HttpClient.1.0.5.nupkg -k $PACKAGE_PUBLISH -s https://api.nuget.org/v3/index.json

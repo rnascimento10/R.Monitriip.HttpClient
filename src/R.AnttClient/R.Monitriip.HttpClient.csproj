@@ -5,10 +5,10 @@
     <Description>Uma bilblioteca simples para envio de logs para o sistema Monitriip</Description>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Monitriip; Logs Antt; Antt</PackageTags>
-    <RepositoryUrl>https://github.com/rnascimento10/Boole.Antt.Client</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/rnascimento10/Boole.Antt.Client</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rnascimento10/R.Monitriip.HttpClient</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/rnascimento10/R.Monitriip.HttpClient</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
